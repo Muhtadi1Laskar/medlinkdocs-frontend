@@ -201,7 +201,7 @@ function dashView() {
 function listView() {
     $("#content").innerHTML = `<h1>Your reports</h1><p class="sub">Every test, in order</p>
    <div class="bar"><input id="q" type="search" placeholder="Search by title, test, doctor or center" aria-label="Search reports">
-   <select id="st" aria-label="Filter by status"><option value="">All statuses</option><option value="resolved">Resolved</option><option value="ongoing">Ongoing</option></select></div>
+   <select id="st" aria-label="Filter by status"><option value="">All Status</option><option value="resolved">Resolved</option><option value="ongoing">Ongoing</option></select></div>
    ${fday ? `<button class="chip" id="clear-day-filter">Showing ${fmt(fday)} ✕</button>` : ""}<div id="list"></div>`;
     $("#q").oninput = $("#st").onchange = drawList;
     if (fday) $("#clear-day-filter").onclick = () => { fday = ""; listView(); };
