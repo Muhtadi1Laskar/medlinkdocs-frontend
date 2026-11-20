@@ -108,10 +108,10 @@ function authView() {
     <div class="sub" style="margin:4px 0 0">${reg ? "Start your report timeline." : "Sign in to see your timeline."}</div>
     <div class="seg"><button data-m="login" class="${reg ? "" : "on"}">Sign in</button><button data-m="register" class="${reg ? "on" : ""}">Create account</button></div>
     <form id="af" novalidate>
-      ${reg ? `<div class="r2"><div class="field"><label for="fn">First name</label><input id="fn" autocomplete="given-name"></div>
-      <div class="field"><label for="ln">Last name</label><input id="ln" autocomplete="family-name"></div></div>` : ""}
-      <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
-      <div class="field"><label for="pw">Password</label><input id="pw" type="password" autocomplete="${reg ? "new-password" : "current-password"}"></div>
+      ${reg ? `<div class="r2"><div class="field"><label for="fn">First name</label><input id="fn" autocomplete="given-name" placeholder="e.g. Micheal"></div>
+      <div class="field"><label for="ln">Last name</label><input id="ln" autocomplete="family-name" placeholder="e.g. Scott"></div></div>` : ""}
+      <div class="field"><label for="em">Email</label><input id="em" type="email" autocomplete="email" placeholder="you@example.com"></div>
+      <div class="field"><label for="pw">Password</label><input id="pw" type="password" placeholder="Enter you password" autocomplete="${reg ? "new-password" : "current-password"}"></div>
       <div class="err" id="ae" role="alert"></div>
       <button class="btn block" id="ab">${reg ? "Create account" : "Sign in"}</button>
     </form></div></div>`;
@@ -347,7 +347,7 @@ function uploadDlg() {
 }
 
 function applyTheme(theme) {
-    const chosen = theme === "dark" ? "dark" : "light";
+    const chosen = theme === "light" ? "light" : "dark";
     document.documentElement.dataset.theme = chosen;
     const metaTheme = document.querySelector('meta[name="theme-color"]'); if (metaTheme) metaTheme.content = chosen === "dark" ? "#111b2b" : "#f6faff";
     try { localStorage.setItem("mld_theme", chosen); } catch { }
