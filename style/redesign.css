@@ -1,0 +1,110 @@
+/* MedLinkedDocs login-only redesign.
+   Load AFTER the original style.css.
+   All selectors are scoped to .auth so the dashboard and other pages stay unchanged. */
+
+.auth {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 12% 16%, rgba(20, 115, 245, .13), transparent 31%),
+    radial-gradient(ellipse at 88% 84%, rgba(20, 115, 245, .09), transparent 29%),
+    linear-gradient(135deg, var(--page), var(--bg));
+}
+
+.auth::before,
+.auth::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 42% 58% 61% 39% / 46% 42% 58% 54%;
+}
+
+.auth::before {
+  width: 270px;
+  height: 270px;
+  left: -105px;
+  top: -100px;
+  background: rgba(20, 115, 245, .10);
+  transform: rotate(24deg);
+}
+
+.auth::after {
+  width: 230px;
+  height: 230px;
+  right: -78px;
+  bottom: -100px;
+  background: rgba(20, 115, 245, .08);
+  transform: rotate(-18deg);
+}
+
+.auth-box {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 440px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 28px 75px rgba(15, 46, 92, .14);
+}
+
+.auth-box h2 {
+  color: var(--navy);
+  font-size: 30px;
+  letter-spacing: -.04em;
+}
+
+.auth-box .logo {
+  color: var(--blue);
+  font-size: 19px;
+  letter-spacing: -.035em;
+}
+
+.auth-box .chain i {
+  border-color: var(--blue);
+}
+
+.auth-box .chain i:first-child,
+.auth-box .chain b {
+  background: var(--blue);
+}
+
+.auth-box .seg {
+  background: var(--soft);
+  border-radius: 15px;
+}
+
+.auth-box .seg button {
+  border-radius: 11px;
+}
+
+.auth-box .seg button.on {
+  color: var(--blue);
+  background: var(--surface);
+  box-shadow: 0 3px 10px rgba(15, 46, 92, .09);
+}
+
+/* Keep the redesigned login card comfortable on smaller screens. */
+@media (max-width: 600px) {
+  .auth {
+    padding: 18px;
+  }
+
+  .auth-box {
+    padding: 30px 22px;
+    border-radius: 26px;
+  }
+
+  .auth-box h2 {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 380px) {
+  .auth-box {
+    padding: 26px 18px;
+  }
+}
